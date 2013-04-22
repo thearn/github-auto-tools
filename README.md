@@ -32,7 +32,7 @@ If these directories are given but don't exist, they will be created.
 If no directories are given, all repos and gists are cloned into the current working directory.
 If a subdirectory already exists that matches the name of a repo or gist, that repo or gist is skipped. 
 
-# Empty repo behavior: 
+# Files generated for empty repos: 
 When an empty repo is cloned using either the `clonerepos` or `cloneall` script,
 the directory is automatically populated with a set of templated default files. These include:
 
