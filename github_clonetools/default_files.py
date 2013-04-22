@@ -18,6 +18,12 @@ gitignore = """
 *.wpr
 *.wpu
 
+# Directories #
+###############
+build/
+dist/
+*.egg-info
+
 # Compiled source #
 ###################
 *.com
@@ -26,6 +32,7 @@ gitignore = """
 *.exe
 *.o
 *.so
+*.pyc
 
 # Packages #
 ############
@@ -39,6 +46,7 @@ gitignore = """
 *.rar
 *.tar
 *.zip
+*.egg
 
 # Logs and databases #
 ######################

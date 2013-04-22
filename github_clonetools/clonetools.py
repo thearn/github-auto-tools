@@ -19,12 +19,13 @@ def write_default_files(dpath, name, desc, typ = "repo"):
     if os.path.exists(dpath):
         writefile('/'.join([dpath, '%s.wpr' % name]), wingproj)
         
+        if typ != "repo":
+            return
+        
         fn_gitig = '/'.join([dpath, '.gitignore'])
         if not os.path.exists(fn_gitig):
             writefile(fn_gitig, gitignore)
             
-        if typ != "repo":
-            return
             
         fn_readme = '/'.join([dpath, 'README.md'])
         if not os.path.exists(fn_readme):
