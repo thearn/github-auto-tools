@@ -11,18 +11,17 @@ def writefile(fpath,data):
     f.close()
     
 def write_default_files(dpath, name, desc, url):
-    readmemd=readme(name, desc)
-    setuppy = setupfile(name, url, desc)
+
     if os.path.exists(dpath):
         onlyfiles = [ f for f in os.listdir(dpath) if os.path.isfile(os.path.join(dpath,f)) ]
         if len(onlyfiles) > 0:
             return
-        
-        files = [['.gitignore', gitignore],
-         ['README.md', readmemd],
-         ['LICENSE.txt', license],
-         ['setup.py', setuppy],
-         ['%s.wpr' % name, wingproj]]
+        print "Empty repo - adding default files..."
+        files = [['.gitignore', gitignore()],
+         ['README.md', readme(name, desc)],
+         ['LICENSE.txt', license()],
+         ['setup.py', setupfile(name, url, desc)],
+         ['%s.wpr' % name, wingproj()]]
         
         for fname, data in files:
             fn = '/'.join([dpath, fname])
@@ -48,10 +47,11 @@ def get_gists(uname, ask = False, basedir = ''):
     print "Cloning gists from %s..." % uname
     print
     gists = urllib.urlopen("https://api.github.com/users/%s/gists" % uname)
+    wingfn = 'gists.wpr'
     if basedir:
         prep_directory(basedir)
-    fn = '/'.join([basedir, 'gists.wpr'])
-    writefile(fn, wingproj)
+        wingfn = '/'.join([basedir, wingfn])
+    writefile(wingfn, wingproj())
     for item in json.loads(gists.readlines()[0]):
         name= '-'.join(item['files'].keys()[-1].split('.'))
         if basedir:
