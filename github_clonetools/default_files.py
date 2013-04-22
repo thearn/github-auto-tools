@@ -82,7 +82,28 @@ proj.directory-list = [{'dirloc': loc('.'),
 proj.file-type = 'shared'
 """
 
-if __name__ == "__main__":
-    f = open("gitignore.txt",'wb')
-    f.write(gitignore)
-    f.close()
+def setupfile(name,url,desc):
+
+    st="""
+from setuptools import setup, find_packages
+
+setup(name='%s',
+    version='0.1',
+    install_requires=[],
+    description="%s",
+    author='Tristan Hearn',
+    author_email='tristanhearn@gmail.com',
+    url='%s',
+    license='Apache 2.0',
+    packages=['src'],
+)
+""" % (name, desc, url)
+    return st
+
+def readme(name,desc):
+    st="""
+%s
+=======================
+%s
+    """ % (name, desc)
+    return st
