@@ -42,8 +42,8 @@ the directory is automatically populated with a set of templated default files. 
 
 Additionally, for empty projects with the word "python" in the description:
 
-- `setup.py`, pointing to a created `src/` directory
-- `src/__init__.py`
+- A templated `setup.py` file, pointing to a created `src/` directory
+- An empty `src/__init__.py` file
 - an empty Wing IDE project file
 
 These files can be templated with repo-specifc information (or however else you'd like) using the methods in
