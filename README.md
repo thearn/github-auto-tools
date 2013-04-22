@@ -15,16 +15,19 @@ The setup.py file installs three command line scripts into your python scripts d
 - `clonerepos [username] [directory]` clones all github repos from github user 
 `username` into directory `directory`. 
 If no directory is given, the repos are cloned into the current working directory.
+If a subdirectory already exists that matches the name of a repo, that repo is skipped. 
 
 - `clonegists [username] [directory]` clones all github gists from github user 
 `username` into directory `directory`. 
 The directories are named according to the first file in a gist. If no directory is given, 
 the repos are cloned into the current working directory.
+If a subdirectory already exists that matches the name of a gist, that gist is skipped. 
 
 - `cloneall [username] [repo directory] [gists directory]` clones all github 
 repos and gists from github user `username` into directories `repo directory` 
 and `gists directory`, respectively.
 If no directories are given, all repos and gists are cloned into the current working directory.
+If a subdirectory already exists that matches the name of a repo or gist, that repo or gist is skipped. 
 
 # Empty repo behavior: 
 When an empty repo is cloned using either the `clonerepos` or `cloneall` script,
