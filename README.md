@@ -1,7 +1,8 @@
 
 github-clonetools
 =======================
-Python command line tool to clone all repos and gists from a single github account
+Python command line tool to clone all repos and gists from a single github account,
+and populate empty new repos with a set of templated common default files.
     
 # Installation:
 
