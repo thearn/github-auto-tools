@@ -1,6 +1,26 @@
 import urllib, json, os
 from default_files import gitignore, wingproj, license, readme, setupfile
 
+def get_default_files(name,desc):
+    """
+    General default files
+    """
+    defaultfiles = [['.gitignore', gitignore()],
+                    ['README.md', readme(name, desc)],
+                    ['LICENSE.txt', license()]]
+    return defaultfiles
+
+def get_default_py_files(name,desc,url):
+    """
+    Python - specific default files
+    """
+    defaultfiles = [['setup.py', setupfile(name, url, desc)],
+                    ['%s.wpr' % name, wingproj()]]
+    return defaultfiles
+
+#make a source directory for setup.py to point to
+make_src_dir = True
+
 def prep_directory(basedir):
     if not os.path.exists(basedir):
         os.mkdir(basedir)
@@ -13,23 +33,21 @@ def writefile(fpath,data):
 def write_default_files(dpath, name, desc, url):
 
     if os.path.exists(dpath):
-        onlyfiles = [ f for f in os.listdir(dpath) if os.path.isfile(os.path.join(dpath,f)) ]
+        onlyfiles = [ f for f in os.listdir(dpath) 
+                      if os.path.isfile(os.path.join(dpath,f)) ]
         if len(onlyfiles) > 0:
-            return
+            return #only add defaults if repo is empty
         print "Empty repo - adding default files..."
-        files = [['.gitignore', gitignore()],
-         ['README.md', readme(name, desc)],
-         ['LICENSE.txt', license()],
-         ['setup.py', setupfile(name, url, desc)],
-         ['%s.wpr' % name, wingproj()]]
-        
+        files = get_default_files(name, desc)
+        if "python" in desc.lower():
+            files = files + get_default_py_files(name,desc,url)
+            if make_src_dir:
+                srcdir = dpath+'/src'
+                os.mkdir(srcdir)
+                writefile(srcdir+'/__init__.py', '')
         for fname, data in files:
             fn = '/'.join([dpath, fname])
             writefile(fn, data)
-            
-        srcdir = dpath+'/src'
-        os.mkdir(srcdir)
-        writefile(srcdir+'/__init__.py', '')
 
 def process(cmd,name,fpath, ask, desc, url, typ = "repo"):
     if ask:
@@ -50,8 +68,6 @@ def get_gists(uname, ask = False, basedir = ''):
     wingfn = 'gists.wpr'
     if basedir:
         prep_directory(basedir)
-        wingfn = '/'.join([basedir, wingfn])
-    writefile(wingfn, wingproj())
     for item in json.loads(gists.readlines()[0]):
         name= '-'.join(item['files'].keys()[-1].split('.'))
         if basedir:

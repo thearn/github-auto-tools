@@ -1,3 +1,20 @@
+def setupfile(name,url,desc):
+    st="""
+from setuptools import setup, find_packages
+
+setup(name='%s',
+    version='0.1',
+    install_requires=[],
+    description="%s",
+    author='Tristan Hearn',
+    author_email='tristanhearn@gmail.com',
+    url='%s',
+    license='Apache 2.0',
+    packages=['src'],
+)
+""" % (name, desc, url)
+    return st
+
 def license():
     st="""
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -86,24 +103,6 @@ proj.directory-list = [{'dirloc': loc('.'),
                         'watch_for_changes': True}]
 proj.file-type = 'shared'
 """
-    return st
-
-def setupfile(name,url,desc):
-
-    st="""
-from setuptools import setup, find_packages
-
-setup(name='%s',
-    version='0.1',
-    install_requires=[],
-    description="%s",
-    author='Tristan Hearn',
-    author_email='tristanhearn@gmail.com',
-    url='%s',
-    license='Apache 2.0',
-    packages=['src'],
-)
-""" % (name, desc, url)
     return st
 
 def readme(name,desc):
