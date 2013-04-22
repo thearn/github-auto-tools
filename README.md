@@ -1,6 +1,6 @@
 github-clonetools
 =======================
-Python command line tool to clone all repos and gists from a single github account,
+Python command line tool to clone all public repos and gists from a single github account,
 and populate empty new repos with a set of templated common default files.
     
 # Installation:
@@ -11,13 +11,13 @@ Run `python setup.py build install`
 
 The `setup.py` file installs three command line scripts into your python scripts directory.
 
-- `clonerepos [username] [directory]` clones all github repos from github user 
+- `clonerepos [username] [directory]` clones all public github repos from github user 
 `username` into directory `directory`.
 If a directory is given but doesn't exist, it will be created.
 If no directory is given, the repos are cloned into the current working directory.
 If a subdirectory already exists that matches the name of a repo, that repo is skipped. 
 
-- `clonegists [username] [directory]` clones all github gists from github user 
+- `clonegists [username] [directory]` clones all public github gists from github user 
 `username` into directory `directory`. 
 If a directory is given but doesn't exist, it will be created.
 An empty Wing IDE project file will be created at the root of this directory.
@@ -25,7 +25,7 @@ The directories are named according to the first file in a gist. If no directory
 the repos are cloned into the current working directory.
 If a subdirectory already exists that matches the name of a gist, that gist is skipped. 
 
-- `cloneall [username] [repo directory] [gists directory]` clones all github 
+- `cloneall [username] [repo directory] [gists directory]` clones all public github 
 repos and gists from github user `username` into directories `repo directory` 
 and `gists directory`, respectively.
 If these directories are given but don't exist, they will be created.
@@ -55,22 +55,22 @@ This behavior can be tested using any empty repo. I use https://github.com/thear
 
 # Examples:
 
-To clone all of github user thearn's gists and repos into the current directory:
+To clone all of github user thearn's public gists and repos into the current directory:
 ```bash
 $ cloneall thearn
 ```
 
-To clone all github user thearn's gists and repos into the separete `thearn_repos` and `thearn_gists` directories:
+To clone all github user thearn's public gists and repos into the separete `thearn_repos` and `thearn_gists` directories:
 ```bash
 $ cloneall thearn thearn_repos thearn_gists
 ```
 
-To clone all of github user thearn's repos into a directory named `thearn_repos`:
+To clone all of github user thearn's public repos into a directory named `thearn_repos`:
 ```bash
 $ clonerepos thearn thearn_repos
 ```
 
-To clone all of github user thearn's gists into a directory named `thearn_gists`:
+To clone all of github user thearn's public gists into a directory named `thearn_gists`:
 ```bash
 $ clonegists thearn thearn_gists
 ```
