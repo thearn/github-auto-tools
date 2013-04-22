@@ -48,7 +48,7 @@ Each of these files can be templated with repo information using
 Individual default files can be added/removed to the script behavior by editing
 the method `write_default_files` in `github_clonetools/clonetools.py`.
 
-This behavior can be tested on an empty repo. I use https://github.com/thearn/test-empty-repo for this purpose.
+This behavior can be tested using any empty repo. I use https://github.com/thearn/test-empty-repo for this purpose.
 
 # Examples:
 
