@@ -5,11 +5,11 @@ and populate empty new repos with a set of templated common default files.
     
 # Installation:
 
-Just run `python setup.py build install` as normal
+Run `python setup.py build install`
 
 # Usage:
 
-The setup.py file installs three command line scripts into your python scripts directory.
+The `setup.py` file installs three command line scripts into your python scripts directory.
 
 - `clonerepos [username] [directory]` clones all github repos from github user 
 `username` into directory `directory`.
