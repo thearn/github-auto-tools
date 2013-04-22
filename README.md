@@ -23,7 +23,7 @@ the repos are cloned into the current working directory.
 
 - `cloneall [username] [repo directory] [gists directory]` clones all github 
 repos and gists from github user `username` into directories `repo directory` 
-and `repo directory`, respectively.
+and `gists directory`, respectively.
 If no directories are given, all repos and gists are cloned into the current working directory.
 
 # Empty repo behavior: 
@@ -37,4 +37,7 @@ the directory is automatically populated with a set of default files. These incl
 - `src/__init__.py`
 - an empty Wing IDE project file
 
-Each of these files can be templated with repo information using `github_clonetools/default_files.py`
+Each of these files can be templated with repo information using 
+`github_clonetools/default_files.py`.
+Individual default files can be added/removed to the script behavior by editing
+the method `write_default_files` in `github_clonetools/clonetools.py`.
