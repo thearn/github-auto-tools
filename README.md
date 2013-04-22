@@ -39,6 +39,9 @@ the directory is automatically populated with a set of templated default files. 
 - `.gitignore`
 - `README.md`
 - `LICENSE.txt`
+
+Additionally, for empty projects with the word "python" in the description:
+
 - `setup.py`, pointing to a created `src/` directory
 - `src/__init__.py`
 - an empty Wing IDE project file
