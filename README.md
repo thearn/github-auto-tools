@@ -50,22 +50,22 @@ the method `write_default_files` in `github_clonetools/clonetools.py`.
 
 # Examples:
 
-To clone all of my gists and repos into the current directory:
+To clone all of github user thearn's gists and repos into the current directory:
 ```bash
 $ cloneall thearn
 ```
 
-To clone all of my gists and repos into the separete `thearn_repos` and `thearn_gists` directories:
+To clone all github user thearn's gists and repos into the separete `thearn_repos` and `thearn_gists` directories:
 ```bash
 $ cloneall thearn thearn_repos thearn_gists
 ```
 
-To clone all of my repos into a directory named `thearn_repos`:
+To clone all of github user thearn's repos into a directory named `thearn_repos`:
 ```bash
 $ clonerepos thearn thearn_repos
 ```
 
-To clone all of my gists into a directory named `thearn_gists`:
+To clone all of github user thearn's gists into a directory named `thearn_gists`:
 ```bash
 $ clonegists thearn thearn_gists
 ```
