@@ -34,7 +34,7 @@ If a subdirectory already exists that matches the name of a repo or gist, that r
 
 # Empty repo behavior: 
 When an empty repo is cloned using either the `clonerepos` or `cloneall` script,
-the directory is automatically populated with a set of default files. These include:
+the directory is automatically populated with a set of templated default files. These include:
 
 - `.gitignore`
 - `README.md`
@@ -43,7 +43,7 @@ the directory is automatically populated with a set of default files. These incl
 - `src/__init__.py`
 - an empty Wing IDE project file
 
-Each of these files can be templated with repo information using 
+These files can be templated with repo-specifc information (or however else you'd like) using the methods in
 `github_clonetools/default_files.py`.
 Individual default files can be added/removed to the script behavior by editing
 the method `write_default_files` in `github_clonetools/clonetools.py`.
