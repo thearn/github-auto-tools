@@ -60,7 +60,7 @@ To clone all of github user thearn's public gists and repos into the current dir
 $ cloneall thearn
 ```
 
-To clone all github user thearn's public gists and repos into the separete `thearn_repos` and `thearn_gists` directories:
+To clone all github user thearn's public gists and repos into the separate `thearn_repos` and `thearn_gists` directories:
 ```bash
 $ cloneall thearn thearn_repos thearn_gists
 ```
