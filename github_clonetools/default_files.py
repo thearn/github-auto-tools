@@ -33,6 +33,10 @@ limitations under the License.
 
 def gitignore():
     st= """
+# logs #
+########
+*.openmdao_log.txt
+
 # IDE #
 #######
 *.wpr
