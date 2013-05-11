@@ -1,3 +1,18 @@
+def testfile(name):
+    st = """
+import unittest
+
+
+class TestFunctions(unittest.TestCase):
+
+    def test_main(self):
+        pass
+
+if __name__ == '__main__':
+    unittest.main()
+""" 
+    return st
+
 def setupfile(name,url,desc):
     st="""
 from setuptools import setup, find_packages

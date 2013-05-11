@@ -1,5 +1,5 @@
 import urllib, json, os
-from default_files import gitignore, wingproj, license, readme, setupfile
+from default_files import gitignore, wingproj, license, readme, setupfile, testfile
 
 def get_default_files(name,desc):
     """
@@ -45,6 +45,10 @@ def write_default_files(dpath, name, desc, url):
                 srcdir = dpath+'/src'
                 os.mkdir(srcdir)
                 writefile(srcdir+'/__init__.py', '')
+                testdir = dpath+'/tests'
+                os.mkdir(testdir)
+                writefile(testdir+'/__init__.py', '')
+                writefile(testdir+'/test_main.py', testfile(name))
         for fname, data in files:
             fn = '/'.join([dpath, fname])
             writefile(fn, data)
