@@ -4,7 +4,7 @@ Python command line tool to clone all public repos and gists from a single githu
 and populate empty new repos with a set of templated common default files.
     
 # Installation:
-
+Developed for Python 2.7x work, though it may work for other distributions.
 Run `python setup.py build install`
 
 # Usage:
