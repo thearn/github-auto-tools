@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Github-auto-tools : Python command line tool to clone all public repos and gists from a single github account, and populate empty new repos with a set of templated default files." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Github-auto-tools</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/thearn/github-auto-tools">View on GitHub</a>
+
+          <h1 id="project_title">Github-auto-tools</h1>
+          <h2 id="project_tagline">Python command line tool to clone all public repos and gists from a single github account, and populate empty new repos with a set of templated default files.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/thearn/github-auto-tools/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/thearn/github-auto-tools/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="github-clonetools" class="anchor" href="#github-clonetools"><span class="octicon octicon-link"></span></a>github-clonetools</h1>
+
+<p>Python command line tool to clone all public repos and gists from a single github account,
+and populate empty new repos with a set of templated common default files.</p>
+
+<h1>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation:</h1>
+
+<p>Developed for Python 2.7x work, though it may work for other distributions.</p>
+
+<p>To install, run <code>python setup.py build install</code></p>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage:</h1>
+
+<p>The <code>setup.py</code> file installs three command line scripts into your python scripts directory.</p>
+
+<ul>
+<li><p><code>clonerepos [username] [directory]</code> clones all public github repos from github user 
+<code>username</code> into directory <code>directory</code>.
+If a directory is given but doesn't exist, it will be created.
+If no directory is given, the repos are cloned into the current working directory.
+If a subdirectory already exists that matches the name of a repo, that repo is skipped. </p></li>
+<li><p><code>clonegists [username] [directory]</code> clones all public github gists from github user 
+<code>username</code> into directory <code>directory</code>. 
+If a directory is given but doesn't exist, it will be created.
+An empty Wing IDE project file will be created at the root of this directory.
+The directories are named according to the first file in a gist. If no directory is given, 
+the repos are cloned into the current working directory.
+If a subdirectory already exists that matches the name of a gist, that gist is skipped. </p></li>
+<li><p><code>cloneall [username] [repo directory] [gists directory]</code> clones all public github 
+repos and gists from github user <code>username</code> into directories <code>repo directory</code> 
+and <code>gists directory</code>, respectively.
+If these directories are given but don't exist, they will be created.
+If no directories are given, all repos and gists are cloned into the current working directory.
+If a subdirectory already exists that matches the name of a repo or gist, that repo or gist is skipped. </p></li>
+</ul><h1>
+<a name="files-generated-for-empty-repos" class="anchor" href="#files-generated-for-empty-repos"><span class="octicon octicon-link"></span></a>Files generated for empty repos:</h1>
+
+<p>When an empty repo is cloned using either the <code>clonerepos</code> or <code>cloneall</code> script,
+the directory is automatically populated with a set of templated default files. These include:</p>
+
+<ul>
+<li><code>.gitignore</code></li>
+<li><code>README.md</code></li>
+<li><code>LICENSE.txt</code></li>
+</ul><p>Additionally, for empty projects with the word "python" in the description:</p>
+
+<ul>
+<li>A templated <code>setup.py</code> file, pointing to a created <code>src/</code> directory</li>
+<li>An empty <code>src/__init__.py</code> file</li>
+<li>an empty Wing IDE project file</li>
+</ul><p>These files can be templated with repo-specifc information (or however else you'd like) using the methods in
+<code>github_clonetools/default_files.py</code>.
+Individual default files can be added/removed to the script behavior by editing
+the method <code>write_default_files</code> in <code>github_clonetools/clonetools.py</code>.</p>
+
+<p>This behavior can be tested using any empty repo. I use <a href="https://github.com/thearn/test-empty-repo">https://github.com/thearn/test-empty-repo</a> for this purpose.</p>
+
+<h1>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples:</h1>
+
+<p>To clone all of github user thearn's public gists and repos into the current directory:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>cloneall thearn
+</pre></div>
+
+<p>To clone all github user thearn's public gists and repos into the separate <code>thearn_repos</code> and <code>thearn_gists</code> directories:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>cloneall thearn thearn_repos thearn_gists
+</pre></div>
+
+<p>To clone all of github user thearn's public repos into a directory named <code>thearn_repos</code>:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>clonerepos thearn thearn_repos
+</pre></div>
+
+<p>To clone all of github user thearn's public gists into a directory named <code>thearn_gists</code>:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>clonegists thearn thearn_gists
+</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Github-auto-tools maintained by <a href="https://github.com/thearn">thearn</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
