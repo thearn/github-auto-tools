@@ -45,7 +45,6 @@ Additionally, for empty projects with the word "python" in the description:
 
 - A templated `setup.py` file, pointing to a created `src/` directory
 - An empty `src/__init__.py` file
-- an empty Wing IDE project file
 
 These files can be templated with repo-specifc information (or however else you'd like) using the methods in
 `github_clonetools/default_files.py`.
