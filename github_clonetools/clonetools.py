@@ -14,8 +14,7 @@ def get_default_py_files(name,desc,url):
     """
     Python - specific default files
     """
-    defaultfiles = [['setup.py', setupfile(name, url, desc)],
-                    ['%s.wpr' % name, wingproj()]]
+    defaultfiles = [['setup.py', setupfile(name, url, desc)]]
     return defaultfiles
 
 #make a source directory for setup.py to point to
